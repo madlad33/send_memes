@@ -13,4 +13,6 @@ class Contact(models. Model):
     def __str__(self):
         return str(self.phone_no)
 
+    def get_absolute_url(self):
+        return reverse('send-message', kwargs={"pk": self.pk})
 

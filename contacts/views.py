@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import ListView,FormView,DetailView
+
+from contacts.utils import send_whatsapp_message
 from .models import Contact
 from .forms import ContactForm,MessageForm
 from django.urls import reverse_lazy

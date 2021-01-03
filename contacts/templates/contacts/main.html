@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block scripts %}
+{% endblock scripts %}
+
+{% block content %}
+
+    <a href="{% url 'add-contact' %}"><button class="btn btn-primary">+ Add </button></a>
+
+
+    <div class="row">
+    {% for object in object_list %}
+        <div class="col">
+        <a href={{ object.get_absolute_url }}>
+            <div class="card p-3">
+                {{ object.name }}
+                <br>
+                {{ object.phone_no }}
+            </div>
+        </a>
+   </div>
+        {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class = 'row'>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

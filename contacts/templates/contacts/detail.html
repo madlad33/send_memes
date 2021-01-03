@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block scripts %}
+   <script src="{% static 'main.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+    <div id ='alert-box'></div>
+    <form action="" id="message-form">
+    {% csrf_token %}
+    {{ form |crispy }}
+    <button type="submit" class="btn btn-primary"> Send </button>
+
+
+    </form>
+{% endblock content %}
