@@ -7,7 +7,7 @@ from contacts.utils import send_whatsapp_message
 from .models import Contact
 from .forms import ContactForm,MessageForm
 from django.urls import reverse_lazy
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from django.shortcuts import redirect
 
 class ContactListView(ListView):
@@ -24,14 +24,14 @@ class MessageDetailView(DetailView):
         return context
     def post(self,request,*args,**kwargs):
         form = MessageForm(request.POST)
-        if request.is_ajax():
-            if form.is_valid():
-                message_to = self.get_object()
-                body = form.cleaned_data.get('body')
-                send_whatsapp_message(body,message_to)
-                return JsonResponse({"body":body})
-            return redirect('contact-list')
-        return redirect('contact-list')
+
+        if form.is_valid():
+            message_to = self.get_object()
+            body = form.cleaned_data.get('body')
+            send_whatsapp_message(body,message_to)
+            return HttpResponse(f"we've sent a message {body} to {message_to}")
+
+
 
 
 
