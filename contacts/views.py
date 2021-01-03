@@ -9,7 +9,6 @@ from .forms import ContactForm,MessageForm
 from django.urls import reverse_lazy
 from django.http import JsonResponse,HttpResponse
 from django.shortcuts import redirect
-
 class ContactListView(ListView):
     model = Contact
     template_name = 'contacts/main.html'
