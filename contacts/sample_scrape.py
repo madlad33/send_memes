@@ -1,10 +1,10 @@
 import praw
 
-client_id = "9q948ijW8JsuSA"
-client_secret= "tNBHKMsGiVLE3DRYnec5rxkDYMWrmg"
-user_agent="scrape_meme"
-username="Throwawayforpraw33"
-password="Rv-<.2R35mZRgd-"
+client_id = ""
+client_secret= ""
+user_agent=""
+username=""
+password=""
 
 reddit= praw.Reddit(
     client_id=client_id,

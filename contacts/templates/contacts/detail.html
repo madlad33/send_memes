@@ -10,6 +10,7 @@
     <form action="" id="message-form" method="post">
     {% csrf_token %}
     {{ form |crispy }}
+        <br>
     <button type="submit" class="btn btn-primary"> Send </button>
 
 
